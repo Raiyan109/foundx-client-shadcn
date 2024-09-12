@@ -1,10 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
 
-import { ThemeProvider } from "@/components/theme-provider";
-
-import { Header } from "@/components/common/header";
-import { Footer } from "@/components/common/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "NextShad",
-  description: "A template repository with the Next.js + ShandCN Scaffolding created for anyone who doesn't want to go through the instillation repeatedly.",
+  description: "A template repository with the Next.js + ShadCN Scaffolding created for anyone who doesn't want to go through the instillation repeatedly.",
 };
 
 export default function RootLayout({ children }) {
@@ -28,18 +24,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-            <main className="h-[calc(100vh-94px)] overflow-y-auto">
-              {children}
-            </main>
-          <Footer />
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
